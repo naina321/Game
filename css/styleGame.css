@@ -12,22 +12,36 @@ body {
   background-repeat: no-repeat;
 }
 
-.hen {
-    position: absolute;
-    height: 25%;
-    width: 12%;
-    top: 10%;
-    background: url('../image/hen.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 100;
-}
 #hen1 {
-    left: 20%;
+  position: absolute;
+  height: 25%;
+  width: 12%;
+  top: 10%;
+  background: url('../image/hen.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+  left: 20%;
 }
 #hen2 {
-    left: 40%;
+  position: absolute;
+  height: 25%;
+  width: 12%;
+  top: 10%;
+  background: url('../image/hen.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+  left: 40%;
 }
 #hen3 {
-    left: 60%;
+  position: absolute;
+  height: 25%;
+  width: 12%;
+  top: 10%;
+  background: url('../image/hen.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+  left: 60%;
 }
