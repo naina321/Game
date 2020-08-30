@@ -67,18 +67,15 @@ body {
 #egg1 img{
 	position: absolute;
   top: 18%;
-  background-image: url('../image/egg.png');
-	left: calc(20% + 18%/2);
+	left: 29%;
 }
 #egg2 img{
 	position: absolute;
   top: 18%;
-  background-image: url('../image/egg.png');
-	left: calc(40% + 18%/2);
+	left: 49%;
 }
 #egg3 img{
 	position: absolute;
   top: 18%;
-  background-image: url('../image/egg.png');
-	left: calc(60% + 18%/2);
+	left: 69%;
 }
