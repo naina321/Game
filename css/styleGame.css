@@ -13,6 +13,33 @@ body {
 	overflow: hidden;
 }
 
+#score_help {
+  text-align: center;
+  font-size: 25px;
+  background-color: rgb(237, 237, 237);
+}
+
+#score_1 {
+  position: absolute;
+  color: rgb(66, 66, 66);
+  font-size: 30px;
+  top: 45%;
+  left: 30%;
+}
+
+#restart {
+  border: 0;
+  position: absolute;
+  height: 20%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  top: 40%;
+  font-size: 40px;
+  display: none;
+  cursor: pointer;
+}
+
 #hen1 {
   position: absolute;
   height: 25%;
@@ -22,6 +49,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   left: 20%;
+	z-index: 100;
 }
 #hen2 {
   position: absolute;
@@ -32,6 +60,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   left: 40%;
+	z-index: 100;
 }
 #hen3 {
   position: absolute;
@@ -42,6 +71,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   left: 60%;
+	z-index: 100;
 }
 
 #branch {
@@ -52,24 +82,6 @@ body {
   top: 23%;
 }
 
-#base{
-	position: absolute;
-	background-image: url('../image/base.jpg');
-	width: 100vw;
-	height: 15vh;
-	margin-top: 90vh;
-	z-index: 10;
-}
-
-#basket{
-	position: absolute;
-	background-image: url('../image/basket.png');
-	width: 18%;
-	height: 35%;
-	bottom: 0;
-	z-index: 11;
-}
-
 #egg1 {
 	position: absolute;
 	background-image: url('../image/egg.png');
@@ -77,6 +89,7 @@ body {
 	height: 6%;
   top: 18%;
 	left: 29%;
+	z-index: 99;
 }
 #egg2 {
 	position: absolute;
@@ -85,6 +98,7 @@ body {
 	height: 6%;
   top: 18%;
 	left: 49%;
+	z-index: 99;
 }
 #egg3 {
 	position: absolute;
@@ -93,4 +107,54 @@ body {
 	height: 6%;
   top: 18%;
 	left: 69%;
+	z-index: 99;
+}
+
+#splash1{
+	display: none;
+	position: absolute;
+	background-image: url('../image/splash.png');
+	bottom: 0;
+	height: 6%;
+	width: 7%;
+	left: 29%;
+	z-index: 11;
+}
+#splash2{
+	display: none;
+	position: absolute;
+	background-image: url('../image/splash.png');
+	bottom: 0;
+	height: 6%;
+	width: 7%;
+	left: 49%;
+	z-index: 11;
+}
+#splash3{
+	display: none;
+	position: absolute;
+	background-image: url('../image/splash.png');
+	bottom: 0;
+	height: 6%;
+	width: 7%;
+	left: 69%;
+	z-index: 11;
+}
+
+#base{
+	position: absolute;
+	background-image: url('../image/base.jpg');
+	width: 100vw;
+	height: 20vh;
+	margin-top: 80vh;
+	z-index: 10;
+}
+
+#basket{
+	position: absolute;
+	background-image: url('../image/basket.png');
+	width: 18%;
+	height: 35%;
+	bottom: 5%;
+	z-index: 11;
 }
