@@ -1,6 +1,15 @@
-var hen = document.getElementById('h1');
-var pos1=0;
-hen.addEventListener("keyup", function() 
-    {
-          hen.style.top= pos1 + 5 + 'px';
-     })
+function start()
+        {
+          var obj = document.getElementById("basket");
+          document.addEventListener('keydown', moveSelection);
+          function moveSelection(event)
+          {
+                    if (event.keyCode==37) {
+                        obj.style.left = parseInt(obj.style.left) - 20 + 'px';
+                    }
+                    else if(event.keyCode==39)
+                    {
+                      obj.style.left = parseInt(obj.style.left) + 20 + 'px';  
+                    }
+           }
+        }

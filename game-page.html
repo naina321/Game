@@ -1,20 +1,29 @@
-<!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  	<link rel="stylesheet" type="text/css" href="css/styleGame.css">
-    <title>Egg in a Basket</title>
+    <title>Test Move Object</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/script.js"></script>
   </head>
-
-  <body>
-    <div class="container">
-      <div id="hen1"></div>
-      <div id="hen2"></div>
-      <div id="hen3"></div>
-      <!--div id="leaf"><img src="image/egg.png"></div-->
-          <div id="base"><img src="image/base.jpg"></div>
+  
+  <body onload="start()">
+    <div id="score_help"> Score:
+        <span id="score">0</span> | Life:
+        <span id="life"></span> | Use mouse to control
     </div>
 
-  </body>
+  <div id="branch"></div> 
+  
+  <div id="hen1" class="hen"></div>
+  <div id="hen2" class="hen"></div>
+  <div id="hen3" class="hen"></div>
 
+  <div id="egg1" data-splash='1' class="egg"></div>
+  <div id="egg2" data-splash='2' class="egg"></div>
+  <div id="egg3" data-splash='3' class="egg"></div>
+  
+  <div><img id="basket" src="image/basket.png" style="left:0;bottom:1%;" ></div>
+  <div id="base" ></div>
+  </body>
 </html>
