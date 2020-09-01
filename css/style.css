@@ -49,13 +49,12 @@ body{
 #hen3 {
 	left: 60%;
 }
-
 .egg {
 	position: absolute;
 	background-image: url('../image/egg.png');
 	width: 3%;
 	height: 6%;
-    top: 18%;
+    margin-top: 10%;
     z-index: 10;
 }
 #egg1 {
