@@ -1,17 +1,13 @@
-* {
+*{
 	padding: 0;
 	margin: 0;
 }
-html {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
 body {
-  background-image: url('../image/landscape1.jpg');
-	background-size: cover;
-  background-repeat: no-repeat;
-	overflow: hidden;
+	background-image: url('../image/landscape1.jpg');
+  background-size: 100vw 100vh;
+	background-repeat: no-repeat;
+	position: relative;
+
 }
 
 #score_help {
@@ -41,7 +37,7 @@ body {
   height: 25%;
   width: 12%;
   top: 3%;
-	background: url('../image/hen.png');
+  background: url('../image/hen.png');
   background-size: cover;
   z-index:20;
 }
@@ -54,62 +50,32 @@ body {
 #hen3 {
 	left: 60%;
 }
-
 .egg {
 	position: absolute;
+	background-image: url('../image/egg.png');
 	width: 3%;
 	height: 6%;
-  top: 18%;
-  z-index: 10;
+    margin-top: 10%;
+    z-index: 10;
 }
 #egg1 {
-	left: 25%;
+	left: 29%;
 }
 #egg2 {
-	left: 45%;
+	left: 49%;
 }
 #egg3 {
-	left: 65%;
+	left: 69%;
 }
 
-#splash1{
-	display: none;
-	position: absolute;
-	background-image: url('../image/splash.png');
-	bottom: 0;
-	height: 6%;
-	width: 7%;
-	left: 25%;
-	z-index: 11;
-}
-#splash2{
-	display: none;
-	position: absolute;
-	background-image: url('../image/splash.png');
-	bottom: 0;
-	height: 6%;
-	width: 7%;
-	left: 45%;
-	z-index: 11;
-}
-#splash3{
-	display: none;
-	position: absolute;
-	background-image: url('../image/splash.png');
-	bottom: 0;
-	height: 6%;
-	width: 7%;
-	left: 65%;
-	z-index: 11;
-}
-
-#basket {
+#basket
+{
 	 height:200px;
 	 width:200px;
 	 position: absolute;
 }
 
-#base {
+#base{
 	background-image: url('../image/base.jpg');
 	background-repeat: repeat-x;
 	width: 100vw;
