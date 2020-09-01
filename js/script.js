@@ -65,3 +65,7 @@ function start()
     }
    }
 }
+function name()
+{
+  hello;
+}
