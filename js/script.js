@@ -10,6 +10,7 @@ var basket = document.getElementById('basket'),
     score1 = document.getElementById('score1'),
     lifeSpan = document.getElementById('life'),
     floor = document.getElementById('floor'),
+    splashEgg=document.getElementsByClassName('splash')
     basketHeight = basket.offsetHeight,
     containerHeight = container.offsetHeight,
     eggHeight = eggs.offsetHeight,
@@ -29,14 +30,19 @@ var basket = document.getElementById('basket'),
 lifeSpan.textContent=life;
 
 function start() {
-          document.addEventListener('keydown', moveSelection);
-          function moveSelection(event) {
-                    if (event.keyCode==37) {
-                        basket.style.left = parseInt(basket.style.left) - 20 + 'px';
-                    }
-                    else if(event.keyCode==39)
-                    {
-                      basket.style.left = parseInt(basket.style.left) + 20 + 'px';
-                    }
-           }
+    document.addEventListener('keydown', moveSelection);
+    function moveSelection(event) {
+        if (event.keyCode==37) {
+            basket.style.left = parseInt(basket.style.left) - 20 + 'px';
         }
+        else if(event.keyCode==39) {
+            basket.style.left = parseInt(basket.style.left) + 20 + 'px';
+        }
+    }
+}
+
+function egg_drop(egg){
+    eggCurrPos = parseInt(egg.style.top);
+    eggCurrPos += speed;
+    egg.style.top = eggCurrPos;
+}
