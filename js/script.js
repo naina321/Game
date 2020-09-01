@@ -19,34 +19,34 @@ function start()
   var base=document.getElementById('base');
   var restart=document.getElementById('restart');
 
-  /*function for moving basket using keyboard*/
-  document.addEventListener('keydown', moveSelection);
-  function moveSelection(event)
-    {
-        if (event.keyCode==37)
-        {
-            obj.style.left = parseInt(obj.style.left) - 30 + 'px';
-        }
-        else if(event.keyCode==39)
-        {
-            obj.style.left = parseInt(obj.style.left) + 30 + 'px';
-        }
-     }
+  
+	/*function for moving basket using keyboard*/
+	document.addEventListener('keydown', moveSelection);
+	function moveSelection(event)
+		{
+		    if (event.keyCode==37)
+		    {
+		        obj.style.left = parseInt(obj.style.left) - 30 + 'px';
+		    }
+		    else if(event.keyCode==39)
+		    {
+		        obj.style.left = parseInt(obj.style.left) + 30 + 'px';
+		    }
+		 }
 
   /*function for falling eggs rendomly*/
   id1=setInterval(fall_egg1,6)
   function fall_egg1() {
      if(pos1==400) {
-         check_collision(obj1,obj);
-         pos1=0;
+			 	 check_collision(obj1,obj);
+      	 pos1=0;
      }
      else {
-         pos1++;
+      	 pos1++;
          obj1.style.top=pos1 +"px";
 
      }
   }
-
   id2=setInterval(fall_egg2,8)
   function fall_egg2()
   {
@@ -57,11 +57,10 @@ function start()
      }
      else
      {
-         pos2++;
+      	 pos2++;
          obj2.style.top=pos2 +"px";
      }
   }
-
   id3=setInterval(fall_egg3,9)
   function fall_egg3()
   {
@@ -72,7 +71,7 @@ function start()
      }
      else
      {
-          pos3++;
+        	pos3++;
           obj3.style.top=pos3 +"px";
      }
   }
@@ -105,11 +104,14 @@ function start()
       }
    }
 
-   function stop_game() {
-       clearInterval(id1);
-       clearInterval(id2);
-       clearInterval(id3);
-       restart.style.display='block';
-     
-   }
+	 function stop_game() {
+			 clearInterval(id1);
+			 clearInterval(id2);
+			 clearInterval(id3);
+			 restart.style.display='block';
+			 restart.addEventListener('click',refresh_page);
+			 function refresh_page() {
+			 		location.reload();
+			 }
+	 }
 }
