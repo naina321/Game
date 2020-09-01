@@ -83,3 +83,16 @@ body {
 	z-index: -50;
 	margin-top: 81vh;
 }
+
+#restart {
+    border: 0;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    background-color: crimson;
+    color: white;
+    top: 40%;
+    font-size: 40px;
+    display: none;
+    cursor: pointer;
+}
