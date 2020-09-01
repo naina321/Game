@@ -2,8 +2,8 @@ function start()
 {
 	/*function for moving basket using keyboard*/
 	var obj = document.getElementById("basket");
-	document.addEventListener('keydown', moveSelection);
-	function moveSelection(event)                         
+	document.addEventListener('keydown', move);
+	function move(event)                         
 		{
 		    if (event.keyCode==37) 
 		    {
@@ -18,6 +18,7 @@ function start()
 /*function for falling eggs rendomly*/
    var obj1 = document.getElementById("egg1");
    var pos1= 0;
+   var s_core=0;
    setInterval(fall_egg1,5)
    function fall_egg1()
    {
