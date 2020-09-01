@@ -1,6 +1,6 @@
 function start()
 {
-	var life = 5;
+	var life = 10;
 	var score=0;
 	var id2,id2,id3;
 	var scoreSpan=document.getElementById('score');
@@ -31,9 +31,9 @@ function start()
 		 }
 
   /*function for falling eggs rendomly*/
-  id1=setInterval(fall_egg1,6)
+  id1=setInterval(fall_egg1,7)
   function fall_egg1() {
-     if(pos1==450) {
+     if(pos1==400) {
 			 	 check_collision(obj1,obj);
       	 pos1=0;
      }
@@ -44,10 +44,10 @@ function start()
      }
   }
 
-  id2=setInterval(fall_egg2,8)
+  id2=setInterval(fall_egg2,9)
   function fall_egg2()
   {
-     if(pos2==450)
+     if(pos2==400)
      {
 			 	check_collision(obj2,obj);
       	 pos2=0;
@@ -59,10 +59,10 @@ function start()
      }
   }
 
-  id3=setInterval(fall_egg3,9)
+  id3=setInterval(fall_egg3,10)
   function fall_egg3()
   {
-     if(pos3==450)
+     if(pos3==400)
      {
 			 		check_collision(obj3,obj);
         	pos3=0;
@@ -91,20 +91,24 @@ function start()
 			if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2){
 				 life--;
 				 lifeSpan.textContent=life;
-				 stop_game();
+				 if(life==0){
+				 		stop_game();
+					}
 			}
 	    else{
-				score++;
+				score+=5;
 				scoreSpan.textContent=score;
 			}
    }
 
 	 function stop_game() {
-		 if(life==0){
 			 clearInterval(id1);
 			 clearInterval(id2);
 			 clearInterval(id3);
 			 restart.style.display='block';
-		 }
+			 restart.addEventListener('click',refresh_page);
+			 function refresh_page() {
+			 		location.reload();
+			 }
 	 }
 }
