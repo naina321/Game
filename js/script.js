@@ -16,26 +16,29 @@ function start()
 	var pos3=0;
 	var base=document.getElementById('base');
 	var restart=document.getElementById('restart');
+	var splashNum=0;
+
 	/*function for moving basket using keyboard*/
 	document.addEventListener('keydown', moveSelection);
 	function moveSelection(event)
 		{
 		    if (event.keyCode==37)
 		    {
-		        obj.style.left = parseInt(obj.style.left) - 30 + 'px';
+		        obj.style.left = parseInt(obj.style.left) - 150 + 'px';
 		    }
 		    else if(event.keyCode==39)
 		    {
-		        obj.style.left = parseInt(obj.style.left) + 30 + 'px';
+		        obj.style.left = parseInt(obj.style.left) + 150 + 'px';
 		    }
 		 }
 
   /*function for falling eggs rendomly*/
-  id1=setInterval(fall_egg1,7)
+  id1=setInterval(fall_egg1,5)
   function fall_egg1() {
-     if(pos1==400) {
+     if(pos1==420) {
 			 	 check_collision(obj1,obj);
       	 pos1=0;
+				 check_egg_hits_base(obj1,obj);
      }
      else {
       	 pos1++;
@@ -44,13 +47,14 @@ function start()
      }
   }
 
-  id2=setInterval(fall_egg2,9)
+  id2=setInterval(fall_egg2,7)
   function fall_egg2()
   {
-     if(pos2==400)
+     if(pos2==420)
      {
 			 	check_collision(obj2,obj);
-      	 pos2=0;
+      	pos2=0;
+				check_egg_hits_base(obj2,obj);
      }
      else
      {
@@ -59,13 +63,14 @@ function start()
      }
   }
 
-  id3=setInterval(fall_egg3,10)
+  id3=setInterval(fall_egg3,9)
   function fall_egg3()
   {
-     if(pos3==400)
+     if(pos3==420)
      {
 			 		check_collision(obj3,obj);
         	pos3=0;
+					check_egg_hits_base(obj3,obj);
      }
      else
      {
@@ -74,6 +79,23 @@ function start()
      }
   }
 
+	function check_egg_hits_base(div1,div2) {
+		var y1=div1.offsetTop;
+		var h1=div1.offsetHeight;
+		var h2=div2.offsetHeight;
+		var y2=div2.offsetTop;
+		var b1 = y1+h1;
+		var b2 = y2+h2;
+		var x1=div1.offsetLeft;
+		var w1=div1.offsetWidth;
+		var x2=div2.offsetLeft;
+		var w2=div2.offsetWidth;
+		var r1 = x1+w1;
+		var r2 = x2+w2;
+		if(y1 > b2 || r1 < x2 || x1 > r2){
+			show_splash(div1);
+		}
+	}
 
   function check_collision(div1, div2){
 			var x1=div1.offsetLeft;
@@ -100,6 +122,18 @@ function start()
 				scoreSpan.textContent=score;
 			}
    }
+
+	 function show_splash(egg) {
+		 splashNum=egg.getAttribute("data-splash");
+	 	 ('splash'+splashNum).style.display="block";
+		 hide_splash(splashNum);
+	 }
+
+	 function hide_splash(splashNum){
+		 setTimeout(function () {
+			 ('splash'+splashNum).style.display="hide";
+		 },500);
+	 }
 
 	 function stop_game() {
 			 clearInterval(id1);

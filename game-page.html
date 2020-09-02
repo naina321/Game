@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Egg in the basket</title>
+    <title>Egg in a Basket</title>
     <link rel="stylesheet" type="text/css" href="css/styleGame.css">
   </head>
 
@@ -10,7 +10,6 @@
     <div id="score_help"> Score:
         <span id="score"></span> | Life:
         <span id="life"></span> | Use arrow keys to move basket left or right
-      </div>
     </div>
 
   <div id="branch"></div>
@@ -19,9 +18,13 @@
   <div id="hen2" class="hen"></div>
   <div id="hen3" class="hen"></div>
 
-  <div id="egg1" class="egg"></div>
-  <div id="egg2" class="egg"></div>
-  <div id="egg3" class="egg"></div>
+  <div id="egg1" data-splash='1' class="egg"></div>
+  <div id="egg2" data-splash='2' class="egg"></div>
+  <div id="egg3" data-splash='3' class="egg"></div>
+
+  <div id="splash1" class="splash"></div>
+  <div id="splash2" class="splash"></div>
+  <div id="splash3" class="splash"></div>
 
   <div><img id="basket" src="image/basket.png" style="left:0;bottom:1%;" ></div>
 
