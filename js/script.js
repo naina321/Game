@@ -18,19 +18,21 @@ function start()
   var pos3=0;
   var base=document.getElementById('base');
   var restart=document.getElementById('restart');
+  var smash1=document.getElementById("splash1");
+  var smash2=document.getElementById("splash2");
+  var smash3=document.getElementById("splash3");
 
-  
 	/*function for moving basket using keyboard*/
 	document.addEventListener('keydown', moveSelection);
 	function moveSelection(event)
 		{
 		    if (event.keyCode==37)
 		    {
-		        obj.style.left = parseInt(obj.style.left) - 30 + 'px';
+		        obj.style.left = parseInt(obj.style.left) - 40 + 'px';
 		    }
 		    else if(event.keyCode==39)
 		    {
-		        obj.style.left = parseInt(obj.style.left) + 30 + 'px';
+		        obj.style.left = parseInt(obj.style.left) + 40 + 'px';
 		    }
 		 }
 
@@ -38,7 +40,7 @@ function start()
   id1=setInterval(fall_egg1,6)
   function fall_egg1() {
      if(pos1==400) {
-			 	 check_collision(obj1,obj);
+			 	 check_collision(obj1,obj,smash1);
       	 pos1=0;
      }
      else {
@@ -52,7 +54,7 @@ function start()
   {
      if(pos2==400)
      {
-        check_collision(obj2,obj);
+        check_collision(obj2,obj,smash2);
          pos2=0;
      }
      else
@@ -66,7 +68,7 @@ function start()
   {
      if(pos3==400)
      {
-          check_collision(obj3,obj);
+          check_collision(obj3,obj,smash3);
           pos3=0;
      }
      else
@@ -77,7 +79,7 @@ function start()
   }
 
   /*fuction for detect collision*/
-  function check_collision(div1, div2)
+  function check_collision(div1, div2, div3)
   {
       var x1=div1.offsetLeft;       /*position of egg from left*/
       var y1=div1.offsetTop;        /*position of egg from top*/
@@ -94,6 +96,7 @@ function start()
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2){
          life--;
          lifeSpan.textContent=life;
+         div3.style.zIndex= "10";
          if (life==0) 
           {stop_game();
           } 
@@ -101,16 +104,20 @@ function start()
       else{
         score+=5;
         scoreSpan.textContent=score;
+        div3.style.zIndex= "-10";
       }
    }
 
-	 function stop_game() {
+	 function stop_game() /*function for stop the game*/
+   {
 			 clearInterval(id1);
 			 clearInterval(id2);
 			 clearInterval(id3);
-			 restart.style.display='block';
+
+			 restart.style.display='block'; /*for restarting the game*/
 			 restart.addEventListener('click',refresh_page);
-			 function refresh_page() {
+			 function refresh_page() 
+       {
 			 		location.reload();
 			 }
 	 }
