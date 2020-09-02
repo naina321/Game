@@ -16,7 +16,9 @@ function start()
 	var pos3=0;
 	var base=document.getElementById('base');
 	var restart=document.getElementById('restart');
-	var splashNum=0;
+	var smash1=document.getElementById("splash1");
+	var smash2=document.getElementById("splash2");
+	var smash3=document.getElementById("splash3");
 
 	/*function for moving basket using keyboard*/
 	document.addEventListener('keydown', moveSelection);
@@ -36,9 +38,8 @@ function start()
   id1=setInterval(fall_egg1,5)
   function fall_egg1() {
      if(pos1==420) {
-			 	 check_collision(obj1,obj);
-      	 pos1=0;
-				 check_egg_hits_base(obj1,obj);
+				 check_collision(obj1,obj,smash1);
+				 pos1=0;
      }
      else {
       	 pos1++;
@@ -47,14 +48,13 @@ function start()
      }
   }
 
-  id2=setInterval(fall_egg2,7)
+  id2=setInterval(fall_egg2,6)
   function fall_egg2()
   {
      if(pos2==420)
      {
-			 	check_collision(obj2,obj);
+			 	check_collision(obj2,obj,smash2);
       	pos2=0;
-				check_egg_hits_base(obj2,obj);
      }
      else
      {
@@ -63,14 +63,13 @@ function start()
      }
   }
 
-  id3=setInterval(fall_egg3,9)
+  id3=setInterval(fall_egg3,9.5)
   function fall_egg3()
   {
      if(pos3==420)
      {
-			 		check_collision(obj3,obj);
+			 		check_collision(obj3,obj,smash3);
         	pos3=0;
-					check_egg_hits_base(obj3,obj);
      }
      else
      {
@@ -79,25 +78,7 @@ function start()
      }
   }
 
-	function check_egg_hits_base(div1,div2) {
-		var y1=div1.offsetTop;
-		var h1=div1.offsetHeight;
-		var h2=div2.offsetHeight;
-		var y2=div2.offsetTop;
-		var b1 = y1+h1;
-		var b2 = y2+h2;
-		var x1=div1.offsetLeft;
-		var w1=div1.offsetWidth;
-		var x2=div2.offsetLeft;
-		var w2=div2.offsetWidth;
-		var r1 = x1+w1;
-		var r2 = x2+w2;
-		if(y1 > b2 || r1 < x2 || x1 > r2){
-			show_splash(div1);
-		}
-	}
-
-  function check_collision(div1, div2){
+  function check_collision(div1, div2, div3){
 			var x1=div1.offsetLeft;
 			var y1=div1.offsetTop;
 			var h1=div1.offsetHeight;
@@ -113,6 +94,7 @@ function start()
 			if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2){
 				 life--;
 				 lifeSpan.textContent=life;
+				 div3.style.zIndex= "10";
 				 if(life==0){
 				 		stop_game();
 					}
@@ -120,20 +102,9 @@ function start()
 	    else{
 				score+=5;
 				scoreSpan.textContent=score;
+				div3.style.zIndex= "-10";
 			}
    }
-
-	 function show_splash(egg) {
-		 splashNum=egg.getAttribute("data-splash");
-	 	 ('splash'+splashNum).style.display="block";
-		 hide_splash(splashNum);
-	 }
-
-	 function hide_splash(splashNum){
-		 setTimeout(function () {
-			 ('splash'+splashNum).style.display="hide";
-		 },500);
-	 }
 
 	 function stop_game() {
 			 clearInterval(id1);
