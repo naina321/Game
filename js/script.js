@@ -1,6 +1,6 @@
 function start()
 {
-	var life = 10;
+	var life = 5;
 	var score=0;
 	var id2,id2,id3;
 	var scoreSpan=document.getElementById('score');
@@ -19,6 +19,10 @@ function start()
 	var smash1=document.getElementById("splash1");
 	var smash2=document.getElementById("splash2");
 	var smash3=document.getElementById("splash3");
+	var speed=9;
+	var min=4;
+	var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
+	var scoreChime=new Audio("../Game/audio/score-chime.mp3");
 
 	/*function for moving basket using keyboard*/
 	document.addEventListener('keydown', moveSelection);
@@ -26,16 +30,16 @@ function start()
 		{
 		    if (event.keyCode==37)
 		    {
-		        obj.style.left = parseInt(obj.style.left) - 150 + 'px';
+		        obj.style.left = parseInt(obj.style.left) - 100 + 'px';
 		    }
 		    else if(event.keyCode==39)
 		    {
-		        obj.style.left = parseInt(obj.style.left) + 150 + 'px';
+		        obj.style.left = parseInt(obj.style.left) + 100 + 'px';
 		    }
 		 }
 
-  /*function for falling eggs rendomly*/
-  id1=setInterval(fall_egg1,5)
+  /*function for falling eggs randomly*/
+  id1=setInterval(fall_egg1,speed-1)
   function fall_egg1() {
      if(pos1==420) {
 				 check_collision(obj1,obj,smash1);
@@ -48,7 +52,7 @@ function start()
      }
   }
 
-  id2=setInterval(fall_egg2,6)
+  id2=setInterval(fall_egg2,speed)
   function fall_egg2()
   {
      if(pos2==420)
@@ -63,7 +67,7 @@ function start()
      }
   }
 
-  id3=setInterval(fall_egg3,9.5)
+  id3=setInterval(fall_egg3,speed+1.5)
   function fall_egg3()
   {
      if(pos3==420)
@@ -95,6 +99,8 @@ function start()
 				 life--;
 				 lifeSpan.textContent=life;
 				 div3.style.zIndex= "10";
+				 eggSplash.play();
+				 setTimeout(function() { div3.style.zIndex= "-10"; } ,800);
 				 if(life==0){
 				 		stop_game();
 					}
@@ -102,9 +108,13 @@ function start()
 	    else{
 				score+=5;
 				scoreSpan.textContent=score;
-				div3.style.zIndex= "-10";
+				scoreChime.play();
+				if(score%25==0 && speed>min){
+					speed--;
+				}
 			}
    }
+
 
 	 function stop_game() {
 			 clearInterval(id1);
