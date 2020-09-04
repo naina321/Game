@@ -14,16 +14,9 @@ body {
 #score_help {
   text-align: center;
   font-size: 25px;
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(108,255,250);
 }
 
-#score_1 {
-  position: absolute;
-  color: rgb(66, 66, 66);
-  font-size: 30px;
-  top: 45%;
-  left: 30%;
-}
 
 #branch {
   position: absolute;
@@ -82,8 +75,9 @@ body {
 	background-repeat: repeat-x;
 	width: 100vw;
 	height: 15vh;
+	bottom: 0;
 	z-index: 20;
-	margin-top: 81vh;
+	margin-top: 85vh;
 
 }
 #restart {
@@ -91,7 +85,7 @@ body {
   position: absolute;
   height: 20%;
   width: 40%;
-  background-color: rgb(245, 211, 88);
+  background-color: rgb(108,255,250);
   color: black;
   top: 40%;
   left: 30%;

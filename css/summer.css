@@ -14,16 +14,9 @@ body {
 #score_help {
   text-align: center;
   font-size: 25px;
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(245, 211, 88);
 }
 
-#score_1 {
-  position: absolute;
-  color: rgb(66, 66, 66);
-  font-size: 30px;
-  top: 45%;
-  left: 30%;
-}
 
 #branch {
   position: absolute;
