@@ -3,7 +3,7 @@
 	margin: 0;
 }
 body {
-	background-image: url('../image/spring7.jpg');
+	background-image: url('../image/landscape1.jpg');
   background-size: 100vw 100vh;
 	background-repeat: no-repeat;
 	position: relative;
@@ -54,7 +54,7 @@ body {
 .egg {
 	position: absolute;
 	background-image: url('../image/egg.png');
-  width: 3%;
+	width: 3%;
 	height: 6%;
   margin-top: 10%;
   z-index: 10;
@@ -78,8 +78,8 @@ body {
 }
 
 #base{
-  background-image: url('../image/springbase.jpg');
-  background-repeat: repeat-x;
+	background-image: url('../image/base.jpg');
+	background-repeat: repeat-x;
 	width: 100vw;
 	height: 15vh;
 	z-index: 20;

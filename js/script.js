@@ -1,13 +1,21 @@
-window.onload=fuction()
-{
-  
-}
-document.getElementById("1").onclick = function() {
-  document.getElementById("naina").href = "../css/winter.css";
-};
+function mains(cssFile, cssLinkIndex)
+ {
 
+    var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+    var newlink = document.createElement("link");
+    newlink.setAttribute("rel", "stylesheet");
+    newlink.setAttribute("type", "text/css");
+    newlink.setAttribute("href", cssFile);
+
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+}
 function start()
 {
+  document.getElementById('score_help').style.display = "block";
+  document.getElementById('basket').style.display = "block";
+  document.getElementById('strange').style.display = "none";
+  document.getElementById('chick').style.display = "none";
+  
   var life = 10;
   var score=0;
   var id2,id2,id3;
@@ -36,11 +44,11 @@ function start()
 		{
 		    if (event.keyCode==37)
 		    {
-		        obj.style.left = parseInt(obj.style.left) - 50 + 'px';
+		        obj.style.left = obj.offsetLeft - 50 + 'px';
 		    }
 		    else if(event.keyCode==39)
 		    {
-		        obj.style.left = parseInt(obj.style.left) + 50 + 'px';
+		        obj.style.left = obj.offsetLeft + 50 + 'px';
 		    }
 		 }
 
