@@ -1,12 +1,12 @@
 *{
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 body {
-	background-image: url('../image/spring7.jpg');
+  background-image: url('../image/landscape1.jpg');
   background-size: 100vw 100vh;
-	background-repeat: no-repeat;
-	position: relative;
+  background-repeat: no-repeat;
+  position: relative;
   overflow: hidden;
 }
 
@@ -43,47 +43,47 @@ body {
   z-index:20;
 }
 #hen1 {
-	left: 20%;
+  left: 20%;
 }
 #hen2 {
-	left: 40%;
+  left: 40%;
 }
 #hen3 {
-	left: 60%;
+  left: 60%;
 }
 .egg {
-	position: absolute;
-	background-image: url('../image/egg.png');
-	width: 3%;
-	height: 6%;
+  position: absolute;
+  background-image: url('../image/egg.png');
+  width: 3%;
+  height: 6%;
   margin-top: 10%;
   z-index: 10;
 }
 #egg1 {
-	left: 29%;
+  left: 29%;
 }
 #egg2 {
-	left: 49%;
+  left: 49%;
 }
 #egg3 {
-	left: 69%;
+  left: 69%;
 }
 
 #basket
 {
-	 height:200px;
-	 width:200px;
-	 position: absolute;
+   height:200px;
+   width:200px;
+   position: absolute;
    z-index:30;
 }
 
 #base{
-	background-image: url('../image/springbase.jpg');
-	background-repeat: repeat-x;
-	width: 100vw;
-	height: 15vh;
-	z-index: 20;
-	margin-top: 81vh;
+  background-image: url('../image/base.jpg');
+  background-repeat: repeat-x;
+  width: 100vw;
+  height: 15vh;
+  z-index: 20;
+  margin-top: 81vh;
 
 }
 #restart {
