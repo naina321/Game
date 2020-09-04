@@ -1,3 +1,11 @@
+window.onload=fuction()
+{
+  
+}
+document.getElementById("1").onclick = function() {
+  document.getElementById("naina").href = "../css/winter.css";
+};
+
 function start()
 {
   var life = 10;
@@ -28,16 +36,16 @@ function start()
 		{
 		    if (event.keyCode==37)
 		    {
-		        obj.style.left = parseInt(obj.style.left) - 40 + 'px';
+		        obj.style.left = parseInt(obj.style.left) - 50 + 'px';
 		    }
 		    else if(event.keyCode==39)
 		    {
-		        obj.style.left = parseInt(obj.style.left) + 40 + 'px';
+		        obj.style.left = parseInt(obj.style.left) + 50 + 'px';
 		    }
 		 }
 
   /*function for falling eggs rendomly*/
-  id1=setInterval(fall_egg1,6)
+  id1=setInterval(fall_egg1,10)
   function fall_egg1() {
      if(pos1==400) {
 			 	 check_collision(obj1,obj,smash1);
@@ -97,14 +105,15 @@ function start()
          life--;
          lifeSpan.textContent=life;
          div3.style.zIndex= "10";
+         setTimeout(function() { div3.style.zIndex= "-10"; },800 );
          if (life==0) 
-          {stop_game();
+          {
+            stop_game();
           } 
       }
       else{
         score+=5;
         scoreSpan.textContent=score;
-        div3.style.zIndex= "-10";
       }
    }
 

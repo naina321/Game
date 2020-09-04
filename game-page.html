@@ -3,8 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Egg in the basket</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" id="naina">
     <script src="js/script.js"></script>
+    <script src="js/jsindex.js"></script>
   </head>
   
   <body onload="start()">
@@ -12,6 +13,11 @@
        <span id="score"></span> | Life:
       <span id="life"></span> | Use arrow keys to move basket left or right
       </div>
+  <div class="ghoost g1"></div>
+  <div class="ghoost g2"></div>
+  <div class="ghoost g3"></div>
+  <div class="ghoost g4"></div>
+  <div class="ghoost g5"></div>
 
   <div id="branch"></div>
 
@@ -29,9 +35,10 @@
 
   <div><img id="basket" src="image/basket.png" style="left:0;bottom:1%;" ></div>
 
-  <div id="base" ></div>
-
+  <div id="base"></div>
+  
   <button id="restart">Restart Game</button>
+  
 
   </body>
 </html>
