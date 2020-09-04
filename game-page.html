@@ -1,17 +1,32 @@
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" >
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Egg in the basket</title>
-    <link rel="stylesheet" type="text/css" href="css/styleGame.css">
-  </head>
+    <script src="js/script.js"></script>
+ <head>
 
-  <body onload="start()">
+  <body onclick="start()">
     <div id="score_help"> Score:
-        <span id="score">0</span> | Life:
-        <span id="life"></span> | Use arrow keys to move basket left or right
+       <span id="score"></span> | Life:
+      <span id="life"></span> | Use arrow keys to move basket left or right
       </div>
-    </div>
+
+  <div id="chick"><img src="image/chick.gif"> </div>
+  <div id="strange">
+  <button class="startbtn" onclick="mains('css/summer.css',0)"> SUMMER </button>
+  <button class="startbtn" onclick="mains('css/winter.css',0)"> WINTER </button>
+  <button class="startbtn" onclick="mains('css/scarry.css',0)"> SCARY </button>
+  <button class="startbtn" onclick="mains('css/spring.css',0)"> SPRING </button>
+  <button class="startbtn" onclick="mains('css/rainy.css',0)"> RAINY </button>
+</div>
+  <div class="ghoost g1"></div>
+  <div class="ghoost g2"></div>
+  <div class="ghoost g3"></div>
+  <div class="ghoost g4"></div>
+  <div class="ghoost g5"></div>
+
 
   <div id="branch"></div>
 
@@ -19,13 +34,20 @@
   <div id="hen2" class="hen"></div>
   <div id="hen3" class="hen"></div>
 
-  <div id="egg1" data-splash='1' class="egg"></div>
-  <div id="egg2" data-splash='2' class="egg"></div>
-  <div id="egg3" data-splash='3' class="egg"></div>
+  <div id="egg1" class="egg"></div>
+  <div id="egg2" class="egg"></div>
+  <div id="egg3" class="egg"></div>
+
+  <div id="splash1" class="splash"></div>
+  <div id="splash2" class="splash"></div>
+  <div id="splash3" class="splash"></div>
 
   <div><img id="basket" src="image/basket.png" style="left:0;bottom:1%;" ></div>
-  <div id="base" ></div>
 
-  <script src="js/script.js"></script>
+  <div id="base"></div>
+
+  <button id="restart">Restart Game</button>
+
+
   </body>
 </html>
