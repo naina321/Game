@@ -37,6 +37,11 @@ function start()
   var smash1=document.getElementById("splash1");
   var smash2=document.getElementById("splash2");
   var smash3=document.getElementById("splash3");
+	var speed=9;
+	var min=4;
+	var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
+	var scoreChime=new Audio("../Game/audio/score-chime.mp3");
+
 
 	/*function for moving basket using keyboard*/
 	document.addEventListener('keydown', moveSelection);
@@ -52,26 +57,26 @@ function start()
 		    }
 		 }
 
-  /*function for falling eggs rendomly*/
-  id1=setInterval(fall_egg1,10)
+  /*function for falling eggs randomly*/
+  id1=setInterval(fall_egg1,speed-1)
   function fall_egg1() {
-     if(pos1==400) {
-			 	 check_collision(obj1,obj,smash1);
-      	 pos1=0;
+     if(pos1==420) {
+				 check_collision(obj1,obj,smash1);
+				 pos1=0;
      }
      else {
       	 pos1++;
          obj1.style.top=pos1 +"px";
 
-     }
-  }
-  id2=setInterval(fall_egg2,8)
+       }
+    }
+  id2=setInterval(fall_egg2,speed)
   function fall_egg2()
   {
-     if(pos2==400)
+     if(pos2==420)
      {
-        check_collision(obj2,obj,smash2);
-         pos2=0;
+			 	check_collision(obj2,obj,smash2);
+      	pos2=0;
      }
      else
      {
@@ -79,10 +84,10 @@ function start()
          obj2.style.top=pos2 +"px";
      }
   }
-  id3=setInterval(fall_egg3,9)
+id3=setInterval(fall_egg3,speed+1.5)
   function fall_egg3()
   {
-     if(pos3==400)
+     if(pos3==420)
      {
           check_collision(obj3,obj,smash3);
           pos3=0;
@@ -93,7 +98,6 @@ function start()
           obj3.style.top=pos3 +"px";
      }
   }
-
   /*fuction for detect collision*/
   function check_collision(div1, div2, div3)
   {
@@ -109,23 +113,32 @@ function start()
       var w2=div2.offsetWidth;               /*width of basket */ 
       var b2 = y2+h2/2;                      /*mid position of basket from left*/
       var r2 = x2+w2;                        /*bottom position of basket from top*/
-      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2){
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2)
+      {
          life--;
          lifeSpan.textContent=life;
          div3.style.zIndex= "10";
+         eggSplash.play();
          setTimeout(function() { div3.style.zIndex= "-10"; },800 );
          if (life==0) 
           {
             stop_game();
           } 
       }
-      else{
-        score+=5;
-        scoreSpan.textContent=score;
+      else
+      {
+         score+=5;
+         scoreSpan.textContent=score;
+         scoreChime.play();
+         if(score%25==0 && speed>min)
+         {
+         speed--;
+         }
       }
    }
 
-	 function stop_game() /*function for stop the game*/
+
+	 function stop_game() 
    {
 			 clearInterval(id1);
 			 clearInterval(id2);
