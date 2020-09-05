@@ -1,3 +1,4 @@
+
 function mains(cssFile, cssLinkIndex)
  {
 
@@ -37,35 +38,35 @@ function start()
   var smash1=document.getElementById("splash1");
   var smash2=document.getElementById("splash2");
   var smash3=document.getElementById("splash3");
-	var speed=9;
-	var min=4;
-	var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
-	var scoreChime=new Audio("../Game/audio/score-chime.mp3");
+  var speed=9;
+  var min=4;
+  var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
+  var scoreChime=new Audio("../Game/audio/score-chime.mp3");
 
 
-	/*function for moving basket using keyboard*/
-	document.addEventListener('keydown', moveSelection);
-	function moveSelection(event)
-		{
-		    if (event.keyCode==37)
-		    {
-		        obj.style.left = obj.offsetLeft - 50 + 'px';
-		    }
-		    else if(event.keyCode==39)
-		    {
-		        obj.style.left = obj.offsetLeft + 50 + 'px';
-		    }
-		 }
+  /*function for moving basket using keyboard*/
+  document.addEventListener('keydown', moveSelection);
+  function moveSelection(event)
+    {
+        if (event.keyCode==37)
+        {
+            obj.style.left = obj.offsetLeft - 50 + 'px';
+        }
+        else if(event.keyCode==39)
+        {
+            obj.style.left = obj.offsetLeft + 50 + 'px';
+        }
+     }
 
   /*function for falling eggs randomly*/
   id1=setInterval(fall_egg1,speed-1)
   function fall_egg1() {
      if(pos1==420) {
-				 check_collision(obj1,obj,smash1);
-				 pos1=0;
+         check_collision(obj1,obj,smash1);
+         pos1=0;
      }
      else {
-      	 pos1++;
+         pos1++;
          obj1.style.top=pos1 +"px";
 
        }
@@ -75,12 +76,12 @@ function start()
   {
      if(pos2==420)
      {
-			 	check_collision(obj2,obj,smash2);
-      	pos2=0;
+        check_collision(obj2,obj,smash2);
+        pos2=0;
      }
      else
      {
-      	 pos2++;
+         pos2++;
          obj2.style.top=pos2 +"px";
      }
   }
@@ -94,7 +95,7 @@ id3=setInterval(fall_egg3,speed+1.5)
      }
      else
      {
-        	pos3++;
+          pos3++;
           obj3.style.top=pos3 +"px";
      }
   }
@@ -138,17 +139,17 @@ id3=setInterval(fall_egg3,speed+1.5)
    }
 
 
-	 function stop_game() 
+   function stop_game() 
    {
-			 clearInterval(id1);
-			 clearInterval(id2);
-			 clearInterval(id3);
+       clearInterval(id1);
+       clearInterval(id2);
+       clearInterval(id3);
 
-			 restart.style.display='block'; /*for restarting the game*/
-			 restart.addEventListener('click',refresh_page);
-			 function refresh_page() 
+       restart.style.display='block'; /*for restarting the game*/
+       restart.addEventListener('click',refresh_page);
+       function refresh_page() 
        {
-			 		location.reload();
-			 }
-	 }
+          location.reload();
+       }
+   }
 }
