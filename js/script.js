@@ -111,7 +111,7 @@ id3=setInterval(fall_egg3,speed+1.5)
       var y2=div2.offsetTop;                 /*position of basket from top*/
       var h2=div2.offsetHeight;              /*height of basket */ 
       var w2=div2.offsetWidth;               /*width of basket */ 
-      var b2 = y2+h2/2;                      /*mid position of basket from left*/
+      var b2 = y2+h2;                      /*mid position of basket from left*/
       var r2 = x2+w2;                        /*bottom position of basket from top*/
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2)
       {
