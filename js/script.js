@@ -1,6 +1,11 @@
 
 function mains(cssFile, cssLinkIndex)
  {
+  document.getElementById('strange').style.display = "none";
+  document.getElementById('chick').style.display = "none";
+  document.getElementById('score_help').style.display = "block";
+  document.getElementById('basket').style.display = "block";
+  
 
     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
     var newlink = document.createElement("link");
@@ -13,10 +18,7 @@ function mains(cssFile, cssLinkIndex)
   }
 function start()
 {
-  document.getElementById('score_help').style.display = "block";
-  document.getElementById('basket').style.display = "block";
-  document.getElementById('strange').style.display = "none";
-  document.getElementById('chick').style.display = "none";
+
   
   var life = 10;
   var score=0;
