@@ -8,6 +8,10 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+#inst{
+	text-align: center;
+	padding-top: 22%;
+}
 #score_help{
 	display: none;
 }
@@ -44,7 +48,7 @@ body {
 #strange{
 	margin: 0;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
