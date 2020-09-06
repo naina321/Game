@@ -1,6 +1,11 @@
 function mains(cssFile, cssLinkIndex)
  {
 
+   document.getElementById('score_help').style.display = "block";
+   document.getElementById('basket').style.display = "block";
+   document.getElementById('strange').style.display = "none";
+   document.getElementById('chick').style.display = "none";
+
     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
     var newlink = document.createElement("link");
     newlink.setAttribute("rel", "stylesheet");
@@ -9,15 +14,11 @@ function mains(cssFile, cssLinkIndex)
 
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 
-    document.addEventListener('click',start);
+    start();
 }
 
 function start()
 {
-  document.getElementById('score_help').style.display = "block";
-  document.getElementById('basket').style.display = "block";
-  document.getElementById('strange').style.display = "none";
-  document.getElementById('chick').style.display = "none";
 
   document.getElementById('summer').disabled=true;
   document.getElementById('winter').disabled=true;
@@ -79,7 +80,6 @@ function start()
          obj1.style.top=pos1 +"px";
 
        }
-
     }
   id2=setInterval(fall_egg2,speed);
   function fall_egg2()
@@ -94,7 +94,6 @@ function start()
       	 pos2++;
          obj2.style.top=pos2 +"px";
      }
-
   }
 id3=setInterval(fall_egg3,speed+1);
   function fall_egg3()
@@ -109,8 +108,8 @@ id3=setInterval(fall_egg3,speed+1);
         	pos3++;
           obj3.style.top=pos3 +"px";
      }
-
   }
+
   /*fuction for detect collision*/
   function check_collision(div1, div2, div3)
   {
@@ -155,6 +154,7 @@ id3=setInterval(fall_egg3,speed+1);
          }
       }
    }
+
 	 function stop_game()
    {
 			 clearInterval(id1);
