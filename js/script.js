@@ -1,11 +1,10 @@
-
 function mains(cssFile, cssLinkIndex)
  {
-  document.getElementById('strange').style.display = "none";
-  document.getElementById('chick').style.display = "none";
-  document.getElementById('score_help').style.display = "block";
-  document.getElementById('basket').style.display = "block";
-  
+
+   document.getElementById('score_help').style.display = "block";
+   document.getElementById('basket').style.display = "block";
+   document.getElementById('strange').style.display = "none";
+   document.getElementById('chick').style.display = "none";
 
     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
     var newlink = document.createElement("link");
@@ -14,14 +13,18 @@ function mains(cssFile, cssLinkIndex)
     newlink.setAttribute("href", cssFile);
 
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-    start();
-  }
 
+    start();
 }
 
 function start()
 {
 
+  document.getElementById('summer').disabled=true;
+  document.getElementById('winter').disabled=true;
+  document.getElementById('rainy').disabled=true;
+  document.getElementById('scary').disabled=true;
+  document.getElementById('spring').disabled=true;
 
   var life=10;
   var score=0;
@@ -44,57 +47,54 @@ function start()
   var smash1=document.getElementById("splash1");
   var smash2=document.getElementById("splash2");
   var smash3=document.getElementById("splash3");
+	var speed=9;
+	var min=5;
+	var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
+	var scoreChime=new Audio("../Game/audio/score-chime.mp3");
 
-  var speed=9;
-  var min=5;
+  restart.disabled=true;
 
-  var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
-  var scoreChime=new Audio("../Game/audio/score-chime.mp3");
+	/*function for moving basket using keyboard*/
+	document.addEventListener('keydown', moveSelection);
+	function moveSelection(event)
+		{
+		    if (event.keyCode==37 && obj.offsetLeft!=0)
+		    {
+		        obj.style.left = obj.offsetLeft - 60 + 'px';
+		    }
+		    else if(event.keyCode==39 && (obj.offsetLeft+obj.offsetWidth)<=screen.width)
+		    {
+		        obj.style.left = obj.offsetLeft + 60 + 'px';
+		    }
+		}
 
-
-  /*function for moving basket using keyboard*/
-  document.addEventListener('keydown', moveSelection);
-  function moveSelection(event)
-    {
-        if (event.keyCode==37 && obj.offsetLeft!=0)
-        {
-            obj.style.left = obj.offsetLeft - 60 + 'px';
-        }
-        else if(event.keyCode==39 && (obj.offsetLeft + obj.offsetWidth)<=screen.width)
-        {
-            obj.style.left = obj.offsetLeft + 60 + 'px';
-        }
-     }
-
-/*function for falling eggs randomly*/
+  /*function for falling eggs randomly*/
   id1=setInterval(fall_egg1,speed-1.5);
   function fall_egg1() {
-      if(pos1==430) {
+     if(pos1==430) {
 				 check_collision(obj1,obj,smash1);
 				 pos1=0;
      }
      else {
-         pos1++;
+      	 pos1++;
          obj1.style.top=pos1 +"px";
 
        }
-
-    }
+  }
   id2=setInterval(fall_egg2,speed);
   function fall_egg2()
   {
      if(pos2==430)
      {
-        check_collision(obj2,obj,smash2);
-        pos2=0;
+			 	check_collision(obj2,obj,smash2);
+      	pos2=0;
      }
      else
      {
-         pos2++;
+      	 pos2++;
          obj2.style.top=pos2 +"px";
      }
-
-  }
+}
 id3=setInterval(fall_egg3,speed+1);
   function fall_egg3()
   {
@@ -105,12 +105,12 @@ id3=setInterval(fall_egg3,speed+1);
      }
      else
      {
-          pos3++;
+        	pos3++;
           obj3.style.top=pos3 +"px";
      }
+}
 
-  }
-  /*fuction for detect collision*/
+/*fuction for detect collision*/
   function check_collision(div1, div2, div3)
   {
       var x1=div1.offsetLeft;       /*position of egg from left*/
@@ -155,17 +155,17 @@ id3=setInterval(fall_egg3,speed+1);
       }
    }
 
-	 function stop_game()
+	 function stop_game() {
+			 clearInterval(id1);
+			 clearInterval(id2);
+			 clearInterval(id3);
 
-   {
-       clearInterval(id1);
-       clearInterval(id2);
-       clearInterval(id3);
-       restart.style.display='block'; /*for restarting the game*/
-       restart.addEventListener('click',refresh_page);
+			 restart.style.display='block'; /*for restarting the game*/
+       restart.disabled=false;
+			 restart.addEventListener('click',refresh_page);
 			 function refresh_page()
        {
-          location.reload();
-       }
-   }
+			 		location.reload();
+			 }
+	 }
 }
