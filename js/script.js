@@ -1,9 +1,8 @@
-
 function mains(cssFile, cssLinkIndex)
- {
+{
    document.getElementById('strange').style.display = "none";
    document.getElementById('chick').style.display = "none";
- 
+
     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
     var newlink = document.createElement("link");
     newlink.setAttribute("rel", "stylesheet");
@@ -12,12 +11,13 @@ function mains(cssFile, cssLinkIndex)
 
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
     start();
-  }
+}
 
 function start()
 {
   document.getElementById('score_help').style.display = "block";
   document.getElementById('basket').style.display = "block";
+
   var life=10;
   var score=0;
   var id2,id2,id3;
@@ -50,63 +50,65 @@ function start()
   /*function for moving basket using keyboard*/
   document.addEventListener('keydown', moveSelection);
   function moveSelection(event)
-    {
-        if (event.keyCode==37 && obj.offsetLeft!=0)
-        {
-            obj.style.left = obj.offsetLeft - 60 + 'px';
-        }
-        else if(event.keyCode==39 && (obj.offsetLeft + obj.offsetWidth)<=screen.width)
-        {
-            obj.style.left = obj.offsetLeft + 60 + 'px';
-        }
-     }
+  {
+      if (event.keyCode==37 && obj.offsetLeft!=0)
+      {
+          obj.style.left = obj.offsetLeft - 60 + 'px';
+      }
+      else if(event.keyCode==39 && (obj.offsetLeft + obj.offsetWidth)<=screen.width)
+      {
+          obj.style.left = obj.offsetLeft + 60 + 'px';
+      }
+  }
 
-/*function for falling eggs randomly*/
-  id1=setInterval(fall_egg1, speed-1);
+  /*function for falling eggs randomly*/
+  id1=setInterval(fall_egg1,speed-1.5);
   function fall_egg1() 
   {
-      if(pos1==430) {
-				 check_collision(obj1,obj,smash1);
-				 pos1=0;
-     }
-     else {
-         pos1++;
-         obj1.style.top=pos1 +"px";
-         }
+     if(pos1==430) 
+     {
+        check_collision(obj1,obj,smash1);
+			  pos1=0;
+      }
+     else 
+     {
+      	pos1++;
+        obj1.style.top=pos1 +"px";
+      }
   }
 
-  id2=setInterval(fall_egg2, speed);
+  id2=setInterval(fall_egg2,speed);
   function fall_egg2()
   {
-     if(pos2==430)
-     {
-        check_collision(obj2,obj,smash2);
+      if(pos2==430)
+      {
+			  check_collision(obj2,obj,smash2);
         pos2=0;
-     }
-     else
-     {
-         pos2++;
+      }
+      else
+      {
+      	 pos2++;
          obj2.style.top=pos2 +"px";
-     }
+      }
   }
-  id3=setInterval(fall_egg3, speed+1);
+
+  id3=setInterval(fall_egg3,speed+1);
   function fall_egg3()
   {
      if(pos3==430)
      {
-          check_collision(obj3,obj,smash3);
-          pos3=0;
+        check_collision(obj3,obj,smash3);
+        pos3=0;
      }
      else
      {
-          pos3++;
-          obj3.style.top=pos3 +"px";
+        pos3++;
+        obj3.style.top=pos3 +"px";
      }
-
   }
 
-
   //fuction for detect collision
+
   function check_collision(div1, div2, div3)
   {
       var x1=div1.offsetLeft;       /*position of egg from left*/
@@ -149,19 +151,20 @@ function start()
            id3=setInterval(fall_egg3,speed+1);
          }
       }
-   
   }
-	 function stop_game()
+   
+   function stop_game()
+    {
+			 clearInterval(id1);
+			 clearInterval(id2);
+			 clearInterval(id3);
 
-   {
-       clearInterval(id1);
-       clearInterval(id2);
-       clearInterval(id3);
-       restart.style.display='block'; /*for restarting the game*/
-       restart.addEventListener('click',refresh_page);
+			 restart.style.display='block'; /*for restarting the game*/
+       restart.disabled=false;
+			 restart.addEventListener('click',refresh_page);
 			 function refresh_page()
        {
-          location.reload();
-       }
-   }
+			 		location.reload();
+			 }
+	 }
 }
