@@ -19,7 +19,7 @@ function start()
   document.getElementById('score_help').style.display = "block";
   document.getElementById('basket').style.display = "block";
 
-  var life=6;
+  var life=10;
   var score=0;
   var id2,id2,id3;
   var scoreSpan=document.getElementById('score');
@@ -29,20 +29,22 @@ function start()
   lifeSpan.textContent=life;
 
   var obj=document.getElementById("basket");
+
   var obj1=document.getElementById("egg1");
-  var pos1=0;
   var obj2=document.getElementById("egg2");
-  var pos2=0;
   var obj3=document.getElementById("egg3");
-  var pos3=0;
+
   var base=document.getElementById('base');
   var restart=document.getElementById('restart');
+
   var smash1=document.getElementById("splash1");
   var smash2=document.getElementById("splash2");
   var smash3=document.getElementById("splash3");
 
-  var speed=9;
-  var min=5;
+  var speed1=9;
+  var speed2=8;
+  var speed3=7;
+  var min=4;
 
   var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
   var scoreChime=new Audio("../Game/audio/score-chime.mp3");
@@ -63,51 +65,25 @@ function start()
   }
 
   /*function for falling eggs randomly*/
-  id1=setInterval(fall_egg1,speed-1);
-  function fall_egg1()
+  var pos=0;
+  id1 = setInterval(function() {fall_egg(obj1 ,obj ,smash1);},speed1);
+  id2 = setInterval(function() {fall_egg(obj2 ,obj ,smash2);},speed2);
+  id3 = setInterval(function() {fall_egg(obj3 ,obj ,smash3);},speed3);
+  function fall_egg(EGG , BASKET , SMASH)
   {
-     if(pos1==430)
+     if(pos==430)
      {
-        check_collision(obj1,obj,smash1);
-			  pos1=0;
+        check_collision(EGG , BASKET , SMASH);
+			  pos=0;
       }
      else
      {
-      	pos1++;
-        obj1.style.top=pos1 +"px";
+      	pos++;
+        EGG.style.top=pos +"px";
       }
   }
 
-  id2=setInterval(fall_egg2,speed);
-  function fall_egg2()
-  {
-      if(pos2==430)
-      {
-			  check_collision(obj2,obj,smash2);
-        pos2=0;
-      }
-      else
-      {
-      	 pos2++;
-         obj2.style.top=pos2 +"px";
-      }
-  }
-
-  id3=setInterval(fall_egg3,speed+1);
-  function fall_egg3()
-  {
-     if(pos3==430)
-     {
-        check_collision(obj3,obj,smash3);
-        pos3=0;
-     }
-     else
-     {
-        pos3++;
-        obj3.style.top=pos3 +"px";
-     }
-  }
-  //fuction for detect collision
+//fuction for detect collision
 
   function check_collision(div1, div2, div3)
   {
@@ -142,13 +118,15 @@ function start()
          scoreChime.play();
          if(score>0 && score%25==0 && speed>min)
          {
-           speed--;
+           speed1--;
+           speed2--;
+           speed3--;
            clearInterval(id1);
-           id1=setInterval(fall_egg1,speed-1);
+           id1=setInterval(fall_egg,speed1);
            clearInterval(id2);
-           id2=setInterval(fall_egg2,speed);
+           id2=setInterval(fall_egg,speed2);
            clearInterval(id3);
-           id3=setInterval(fall_egg3,speed+1);
+           id3=setInterval(fall_egg,speed3);
          }
       }
   }
