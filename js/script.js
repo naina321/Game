@@ -1,12 +1,9 @@
 
 function mains(cssFile, cssLinkIndex)
  {
-  document.getElementById('strange').style.display = "none";
-  document.getElementById('chick').style.display = "none";
-  document.getElementById('score_help').style.display = "block";
-  document.getElementById('basket').style.display = "block";
-  
-
+   document.getElementById('strange').style.display = "none";
+   document.getElementById('chick').style.display = "none";
+ 
     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
     var newlink = document.createElement("link");
     newlink.setAttribute("rel", "stylesheet");
@@ -17,12 +14,10 @@ function mains(cssFile, cssLinkIndex)
     start();
   }
 
-}
-
 function start()
 {
-
-
+  document.getElementById('score_help').style.display = "block";
+  document.getElementById('basket').style.display = "block";
   var life=10;
   var score=0;
   var id2,id2,id3;
@@ -67,8 +62,9 @@ function start()
      }
 
 /*function for falling eggs randomly*/
-  id1=setInterval(fall_egg1,speed-1.5);
-  function fall_egg1() {
+  id1=setInterval(fall_egg1, speed-1);
+  function fall_egg1() 
+  {
       if(pos1==430) {
 				 check_collision(obj1,obj,smash1);
 				 pos1=0;
@@ -76,11 +72,10 @@ function start()
      else {
          pos1++;
          obj1.style.top=pos1 +"px";
+         }
+  }
 
-       }
-
-    }
-  id2=setInterval(fall_egg2,speed);
+  id2=setInterval(fall_egg2, speed);
   function fall_egg2()
   {
      if(pos2==430)
@@ -93,9 +88,8 @@ function start()
          pos2++;
          obj2.style.top=pos2 +"px";
      }
-
   }
-id3=setInterval(fall_egg3,speed+1);
+  id3=setInterval(fall_egg3, speed+1);
   function fall_egg3()
   {
      if(pos3==430)
@@ -110,7 +104,9 @@ id3=setInterval(fall_egg3,speed+1);
      }
 
   }
-  /*fuction for detect collision*/
+
+
+  //fuction for detect collision
   function check_collision(div1, div2, div3)
   {
       var x1=div1.offsetLeft;       /*position of egg from left*/
@@ -123,7 +119,7 @@ id3=setInterval(fall_egg3,speed+1);
       var y2=div2.offsetTop;                 /*position of basket from top*/
       var h2=div2.offsetHeight;              /*height of basket */
       var w2=div2.offsetWidth;               /*width of basket */
-      var b2 = y2+h2/2;                      /*mid position of basket from left*/
+      var b2 = y2+h2;                      /*mid position of basket from left*/
       var r2 = x2+w2;                        /*bottom position of basket from top*/
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2)
       {
@@ -153,8 +149,8 @@ id3=setInterval(fall_egg3,speed+1);
            id3=setInterval(fall_egg3,speed+1);
          }
       }
-   }
-
+   
+  }
 	 function stop_game()
 
    {
