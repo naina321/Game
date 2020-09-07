@@ -41,7 +41,9 @@ function start()
   var smash2=document.getElementById("splash2");
   var smash3=document.getElementById("splash3");
 
-  var speed=9;
+  var speed1=9;
+  var speed2=7;
+  var speed3=13;
   var min=5;
 
   var eggSplash=new Audio("../Game/audio/egg-splash.mp3");
@@ -64,9 +66,9 @@ function start()
 
   /*function for falling eggs randomly*/
   var pos=0;
-  id1 = setInterval(function() {fall_egg(obj1 ,obj ,smash1);},speed-1);
-  id2 = setInterval(function() {fall_egg(obj2 ,obj ,smash2);},speed);
-  id3 = setInterval(function() {fall_egg(obj3 ,obj ,smash3);},speed+1);
+  id1 = setInterval(function() {fall_egg(obj1 ,obj ,smash1);},speed1-1);
+  id2 = setInterval(function() {fall_egg(obj2 ,obj ,smash2);},speed2);
+  id3 = setInterval(function() {fall_egg(obj3 ,obj ,smash3);},speed3+1);
   function fall_egg(EGG , BASKET , SMASH) 
   {
      if(pos==430) 
@@ -114,15 +116,15 @@ function start()
          score+=5;
          scoreSpan.textContent=score;
          scoreChime.play();
-         if(score>0 && score%25==0 && speed>min)
+         /*if(score>0 && score%25==0 && speed>min)
          {
            speed--;
            clearInterval(id1);
-           id1=setInterval(fall_egg,speed-1);
+           id1=setInterval(fall_egg,speed1-1);
            clearInterval(id2);
-           id2=setInterval(fall_egg,speed);
+           id2=setInterval(fall_egg,speed2);
            clearInterval(id3);
-           id3=setInterval(fall_egg,speed+1);
+           id3=setInterval(fall_egg,speed3+1);
          }
       }
   }
