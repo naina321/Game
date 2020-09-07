@@ -15,6 +15,7 @@ function mains(cssFile, cssLinkIndex)
 
 function start()
 {
+
   document.getElementById('score_help').style.display = "block";
   document.getElementById('basket').style.display = "block";
 
@@ -62,7 +63,7 @@ function start()
   }
 
   /*function for falling eggs randomly*/
-  id1=setInterval(fall_egg1,speed-1.5);
+  id1=setInterval(fall_egg1,speed-1);
   function fall_egg1() 
   {
      if(pos1==430) 
@@ -106,7 +107,6 @@ function start()
         obj3.style.top=pos3 +"px";
      }
   }
-
   //fuction for detect collision
 
   function check_collision(div1, div2, div3)
@@ -144,7 +144,7 @@ function start()
          {
            speed--;
            clearInterval(id1);
-           id1=setInterval(fall_egg1,speed-1.5);
+           id1=setInterval(fall_egg1,speed-1);
            clearInterval(id2);
            id2=setInterval(fall_egg2,speed);
            clearInterval(id3);
@@ -153,8 +153,9 @@ function start()
       }
   }
    
-   function stop_game()
-    {
+ 
+	 function stop_game()
+   {
 			 clearInterval(id1);
 			 clearInterval(id2);
 			 clearInterval(id3);
