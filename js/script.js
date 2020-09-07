@@ -19,7 +19,7 @@ function start()
   document.getElementById('score_help').style.display = "block";
   document.getElementById('basket').style.display = "block";
 
-  var life=10;
+  var life=6;
   var score=0;
   var id2,id2,id3;
   var scoreSpan=document.getElementById('score');
@@ -64,14 +64,14 @@ function start()
 
   /*function for falling eggs randomly*/
   id1=setInterval(fall_egg1,speed-1);
-  function fall_egg1() 
+  function fall_egg1()
   {
-     if(pos1==430) 
+     if(pos1==430)
      {
         check_collision(obj1,obj,smash1);
 			  pos1=0;
       }
-     else 
+     else
      {
       	pos1++;
         obj1.style.top=pos1 +"px";
@@ -152,8 +152,8 @@ function start()
          }
       }
   }
-   
- 
+
+
 	 function stop_game()
    {
 			 clearInterval(id1);
